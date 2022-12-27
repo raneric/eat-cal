@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sgg.eatcal.ui.HomeFragment"
+        android:label="@string/label_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_findFragment"
+            app:destination="@id/findFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recentFragment"
+            app:destination="@id/recentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="com.sgg.eatcal.ui.FindFragment"
+        android:label="@string/label_find"
+        tools:layout="@layout/fragment_find" />
+    <fragment
+        android:id="@+id/recentFragment"
+        android:name="com.sgg.eatcal.ui.RecentFragment"
+        android:label="@string/label_recent"
+        tools:layout="@layout/fragment_recent" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sgg.eatcal.ui.ProfileFragment"
+        android:label="@string/label_profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>
