@@ -6,10 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.FindFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/receipList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="FIND" />
-
+        tools:listitem="@layout/receip_list_item" />
 </FrameLayout>
