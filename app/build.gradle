@@ -21,8 +21,8 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "SPOONACULAR_API_KEY", apikeyProperties['SPOONACULAR_API_KEY'])
-        buildConfigField("String", "SPOONACULAR_BASE_URL", apikeyProperties['SPOONACULAR_BASE_URL'])
+        buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
+        buildConfigField("String", "BASE_URL", apikeyProperties['BASE_URL'])
     }
 
     buildTypes {

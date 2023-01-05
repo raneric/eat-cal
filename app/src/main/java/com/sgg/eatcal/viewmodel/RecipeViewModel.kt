@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sgg.eatcal.model.Recipe
-import com.sgg.eatcal.service.SpoonacularApi
+import com.sgg.eatcal.service.RecipeApi
 import kotlinx.coroutines.launch
 
 class RecipeViewModel : ViewModel() {
@@ -23,8 +23,7 @@ class RecipeViewModel : ViewModel() {
         viewModelScope.launch {
 
             try {
-                _recipes.value = SpoonacularApi.spoonacularService.testRequst().results
-                Log.d("Retrofit error", recipes.value!!.get(0).title)
+                _recipes.value = RecipeApi.recipeService.findByFat(25)
             } catch (e: Exception) {
                 Log.d("Retrofit ok", e.toString())
             }

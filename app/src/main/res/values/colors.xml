@@ -12,8 +12,11 @@
     <color name="amber_700">#ff8f00</color>
     <color name="lime_600">#c0ca33</color>
     <color name="lime_700">#afb42b</color>
+    <color name="grey_100">#fafafa</color>
+    <color name="lime_100">#f9fbe7</color>
     <color name="amber_a700">#ffab00</color>
     <color name="amber_custom">#DD8500</color>
+    <color name="amber_100">#fff8e1</color>
     <color name="primaryTextColor">#3e2723</color>
     <color name="secondaryTextColor">#212121</color>
 </resources>

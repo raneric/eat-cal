@@ -10,16 +10,12 @@
             type="com.sgg.eatcal.viewmodel.RecipeViewModel" />
     </data>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <FrameLayout
         android:id="@+id/findFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.FindFragment">
-
-        <SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/receipList"
@@ -27,5 +23,5 @@
             android:layout_height="match_parent"
             app:recipeList="@{viewModel.recipes}"
             tools:listitem="@layout/receip_list_item" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
 </layout>

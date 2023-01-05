@@ -3,12 +3,14 @@
     <string name="tittle_home_bottom_nav">Home</string>
     <string name="tittle_find_bottom_nav">Find</string>
     <string name="tittle_recent_bottom_nav">Favoris</string>
-    <string name="tittle_profile_bottom_nav">Profil</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tittle_profile_bottom_nav">Profile</string>
     <string name="label_home">Home</string>
     <string name="label_find">Find</string>
     <string name="label_recent">Recent</string>
     <string name="label_profile">Profile</string>
     <string name="food_picture">Food picture</string>
+    <string name="label_fat_chip">Fat: %1$s</string>
+    <string name="label_calories_chip">Cal.: %1$d</string>
+    <string name="label_protein_chip">Prot.: %1$s</string>
+    <string name="label_carbs_chip">Carbs: %1$s</string>
 </resources>
