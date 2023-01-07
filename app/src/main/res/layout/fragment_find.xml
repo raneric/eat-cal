@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.sgg.eatcal.viewmodel.RecipeViewModel" />
+            type="com.sgg.healthykaly.viewmodel.RecipeViewModel" />
     </data>
 
     <FrameLayout

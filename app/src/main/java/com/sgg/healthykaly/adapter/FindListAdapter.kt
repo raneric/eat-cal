@@ -1,12 +1,12 @@
-package com.sgg.eatcal.adapter
+package com.sgg.healthykaly.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.sgg.eatcal.databinding.ReceipListItemBinding
-import com.sgg.eatcal.model.Recipe
+import com.sgg.healthykaly.databinding.ReceipListItemBinding
+import com.sgg.healthykaly.model.Recipe
 
 class FindListAdapter : ListAdapter<Recipe, FindListAdapter.RecipeListViewHolder>(diffCallback) {
 

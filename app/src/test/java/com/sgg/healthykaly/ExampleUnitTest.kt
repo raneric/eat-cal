@@ -1,4 +1,4 @@
-package com.sgg.eatcal
+package com.sgg.healthykaly
 
 import org.junit.Test
 

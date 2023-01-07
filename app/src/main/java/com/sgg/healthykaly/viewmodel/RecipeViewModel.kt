@@ -1,12 +1,12 @@
-package com.sgg.eatcal.viewmodel
+package com.sgg.healthykaly.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sgg.eatcal.model.Recipe
-import com.sgg.eatcal.service.RecipeApi
+import com.sgg.healthykaly.model.Recipe
+import com.sgg.healthykaly.service.RecipeApi
 import kotlinx.coroutines.launch
 
 class RecipeViewModel : ViewModel() {

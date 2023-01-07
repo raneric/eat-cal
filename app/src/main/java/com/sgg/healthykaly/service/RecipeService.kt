@@ -1,7 +1,7 @@
-package com.sgg.eatcal.service
+package com.sgg.healthykaly.service
 
-import com.sgg.eatcal.BuildConfig
-import com.sgg.eatcal.model.Recipe
+import com.sgg.healthykaly.BuildConfig
+import com.sgg.healthykaly.model.Recipe
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient

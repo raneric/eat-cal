@@ -1,12 +1,11 @@
-package com.sgg.eatcal.adapter
+package com.sgg.healthykaly.adapter
 
 import android.widget.ImageView
 import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.sgg.eatcal.R
-import com.sgg.eatcal.model.Recipe
+import com.sgg.healthykaly.model.Recipe
 
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView,

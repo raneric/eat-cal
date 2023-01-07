@@ -7,7 +7,7 @@
 
         <variable
             name="receip"
-            type="com.sgg.eatcal.model.Recipe" />
+            type="com.sgg.healthykaly.model.Recipe" />
     </data>
 
     <FrameLayout

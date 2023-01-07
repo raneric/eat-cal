@@ -1,4 +1,4 @@
-package com.sgg.eatcal.ui
+package com.sgg.healthykaly.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,10 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sgg.eatcal.R
-import com.sgg.eatcal.adapter.FindListAdapter
-import com.sgg.eatcal.databinding.FragmentFindBinding
-import com.sgg.eatcal.viewmodel.RecipeViewModel
+import com.sgg.healthykaly.adapter.FindListAdapter
+import com.sgg.healthykaly.databinding.FragmentFindBinding
+import com.sgg.healthykaly.viewmodel.RecipeViewModel
 
 class FindFragment : Fragment() {
 
