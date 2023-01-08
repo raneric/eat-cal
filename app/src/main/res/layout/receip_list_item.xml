@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
                     android:padding="@dimen/padding_list_item"
+                    android:text="@{receip.title}"
                     android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/primaryTextColor"
