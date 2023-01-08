@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:cardBackgroundColor="@color/grey_100"
-            app:cardCornerRadius="@dimen/card_border_radius"
+            app:cardCornerRadius="@dimen/border_radius_card"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
 
@@ -39,88 +39,85 @@
                     app:imageUrl="@{receip.image}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/receipTitle"
                     tools:srcCompat="@drawable/default_food" />
 
                 <TextView
                     android:id="@+id/receipTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="sans-serif"
                     android:padding="@dimen/padding_list_item"
-                    android:text="Cauliflower, Brown Rice, and Vegetable Fried Rice"
-                    android:textAlignment="textEnd"
+                    android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/primaryTextColor"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constrainedWidth="true"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/text_list_item" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_fat"
-                    android:layout_width="@dimen/chip_width"
+                    android:layout_width="@dimen/width_chip"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:elevation="@dimen/chip_elevation"
+                    android:elevation="@dimen/elevation_chip"
                     android:text="@{@string/label_fat_chip(receip.fat)}"
                     android:textAlignment="center"
+                    android:textSize="@dimen/text_size_chip"
                     android:textStyle="bold"
                     app:chipSurfaceColor="@color/secondary_light"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/receipTitle"
                     tools:text="Fat: 50g" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_calories"
-                    android:layout_width="@dimen/chip_width"
+                    android:layout_width="@dimen/width_chip"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:elevation="@dimen/chip_elevation"
+                    android:elevation="@dimen/elevation_chip"
                     android:text="@{@string/label_calories_chip(receip.calories)}"
                     android:textAlignment="center"
+                    android:textSize="@dimen/text_size_chip"
                     app:chipSurfaceColor="@color/secondary_light"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
                     app:layout_constraintTop_toBottomOf="@+id/receipTitle"
                     tools:text="Cal.: 1698" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_protein"
-                    android:layout_width="@dimen/chip_width"
+                    android:layout_width="@dimen/width_chip"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:elevation="@dimen/chip_elevation"
+                    android:layout_marginEnd="8dp"
+                    android:elevation="@dimen/elevation_chip"
                     android:text="@{@string/label_protein_chip(receip.protein)}"
                     android:textAlignment="center"
+                    android:textSize="@dimen/text_size_chip"
                     app:chipSurfaceColor="@color/secondary_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/chip_fat"
+                    app:layout_constraintTop_toBottomOf="@+id/receipTitle"
                     tools:text="Prot.: 106g" />
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/chip_carbs"
-                    android:layout_width="@dimen/chip_width"
+                    android:layout_width="@dimen/width_chip"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:elevation="@dimen/chip_elevation"
+                    android:elevation="@dimen/elevation_chip"
                     android:text="@{@string/label_carbs_chip(receip.carbs)}"
                     android:textAlignment="center"
+                    android:textSize="@dimen/text_size_chip"
+                    android:textStyle="bold"
                     app:chipSurfaceColor="@color/secondary_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/chip_calories"
+                    app:layout_constraintTop_toBottomOf="@+id/chip_fat"
                     tools:text="Carbs: 106g" />
 
                 <View
@@ -131,7 +128,7 @@
                     android:layout_marginEnd="3dp"
                     android:background="?android:attr/listDivider"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/receipTitle" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

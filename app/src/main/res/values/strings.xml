@@ -13,4 +13,5 @@
     <string name="label_calories_chip">Cal.: %1$d</string>
     <string name="label_protein_chip">Prot.: %1$s</string>
     <string name="label_carbs_chip">Carbs: %1$s</string>
+    <string name="text_list_item">Cauliflower, Brown Rice, and Vegetable Fried Rice</string>
 </resources>
