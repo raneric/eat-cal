@@ -7,6 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.sgg.healthykaly.model.Recipe
 
+/**
+ * Binding function for imageView databinding that bind from URL using coil library
+ */
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView,
               imgUrl: String?) {
@@ -19,6 +22,9 @@ fun bindImage(imgView: ImageView,
     }
 }
 
+/**
+ * binding function for recipe list recyclerView data binding
+ */
 @BindingAdapter("recipeList")
 fun bindRecyclerView(recyclerView: RecyclerView,
                      recipeList: List<Recipe>?) {

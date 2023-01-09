@@ -12,17 +12,22 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 private const val BASE_URL = BuildConfig.BASE_URL
+private const val API_KEY = BuildConfig.API_KEY
 
 private val moshiConverter = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 
+/**
+ * Retrofit request logger interceptor at basic logging level
+ */
 private val logging: HttpLoggingInterceptor = HttpLoggingInterceptor().setLevel(
     HttpLoggingInterceptor.Level.BASIC)
 
 private val client = OkHttpClient.Builder()
         .addInterceptor(logging)
         .build()
+
 private val retrofit = Retrofit.Builder()
         .addConverterFactory(MoshiConverterFactory.create(moshiConverter))
         .baseUrl(BASE_URL)
@@ -30,10 +35,13 @@ private val retrofit = Retrofit.Builder()
         .build()
 
 interface RecipeService {
-    @GET("findByNutrients?apiKey=${BuildConfig.API_KEY}")
+    @GET("findByNutrients?apiKey=${API_KEY}")
     suspend fun findByFat(@Query(value = "maxFat") maxFat: Int): List<Recipe>
 }
 
+/**
+ * Singleton that hold recipe service created by lazy
+ */
 object RecipeApi {
     val recipeService: RecipeService by lazy { retrofit.create(RecipeService::class.java) }
 }
