@@ -22,7 +22,7 @@ class RecipeViewModel : ViewModel() {
     init {
         loadRecipe()
     }
-    
+
     private fun loadRecipe() {
         viewModelScope.launch {
             _loadingState.value = LoadingState.LOADING
