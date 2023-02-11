@@ -6,4 +6,8 @@
     <dimen name="width_chip">95dp</dimen>
     <dimen name="elevation_chip">3dp</dimen>
     <dimen name="text_size_chip">12sp</dimen>
+    <dimen name="size_error_smiley">150dp</dimen>
+    <dimen name="padding_error_widget">20dp</dimen>
+    <dimen name="border_radius_error">10dp</dimen>
+    <dimen name="margin_error_item">5dp</dimen>
 </resources>

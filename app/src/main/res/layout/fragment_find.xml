@@ -37,5 +37,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="@{(viewModel.loadingState == LoadingState.LOADING)? View.VISIBLE: View.GONE}" />
+
+        <com.sgg.healthykaly.widget.CustomErrorWidget
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/padding_error_widget"
+            android:layout_marginRight="@dimen/padding_error_widget"
+            app:loadingState="@{viewModel.loadingState}"
+            app:onRefresh="@{() -> viewModel.reloadData()}"/>
     </FrameLayout>
 </layout>

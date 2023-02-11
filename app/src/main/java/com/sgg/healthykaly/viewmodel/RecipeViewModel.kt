@@ -36,6 +36,10 @@ class RecipeViewModel : ViewModel() {
         }
     }
 
+    fun reloadData(){
+        loadRecipe()
+    }
+
     companion object {
         const val DEFAULT_FAT = 25
     }
