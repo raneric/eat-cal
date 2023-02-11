@@ -30,7 +30,7 @@ class RecipeViewModel : ViewModel() {
                 _recipes.value = RecipeApi.recipeService.findByFat(DEFAULT_FAT)
                 _loadingState.value = LoadingState.DONE
             } catch (e: Exception) {
-                Log.d("Retrofit ok", e.toString())
+                Log.d("Retrofit Error", e.toString())
                 _loadingState.value = LoadingState.ERROR
             }
         }
