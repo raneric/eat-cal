@@ -17,8 +17,8 @@
         android:text="@string/error_message"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textColor="@color/error_text_color"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/refreshButton"

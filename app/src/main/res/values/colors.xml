@@ -20,4 +20,5 @@
     <color name="primaryTextColor">#3e2723</color>
     <color name="secondaryTextColor">#212121</color>
     <color name="red_error">#ffebee</color>
+    <color name="error_text_color">#e57373</color>
 </resources>

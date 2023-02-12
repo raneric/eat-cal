@@ -16,5 +16,5 @@
     <string name="text_list_item">Cauliflower, Brown Rice, and Vegetable Fried Rice</string>
     <string name="content_desctiption_error">Erro loading page</string>
     <string name="txt_retry_button">Refresh</string>
-    <string name="error_message">Error! please verify you Wifi or check your internet connection</string>
+    <string name="error_message">Error! please check your Wifi or your internet connection</string>
 </resources>
