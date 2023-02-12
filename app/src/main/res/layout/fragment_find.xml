@@ -9,7 +9,7 @@
             name="viewModel"
             type="com.sgg.healthykaly.viewmodel.RecipeViewModel" />
 
-        <import type="com.sgg.healthykaly.util.LoadingState" />
+        <import type="com.sgg.healthykaly.utils.LoadingState" />
 
         <import type="android.view.View" />
     </data>

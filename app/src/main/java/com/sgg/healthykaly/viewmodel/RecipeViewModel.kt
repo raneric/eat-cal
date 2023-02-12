@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.service.RecipeApi
-import com.sgg.healthykaly.util.LoadingState
+import com.sgg.healthykaly.utils.LoadingState
 import kotlinx.coroutines.launch
 
 class RecipeViewModel : ViewModel() {

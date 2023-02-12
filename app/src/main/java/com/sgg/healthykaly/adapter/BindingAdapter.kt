@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.sgg.healthykaly.R
 import com.sgg.healthykaly.model.Recipe
-import com.sgg.healthykaly.util.LoadingState
+import com.sgg.healthykaly.utils.LoadingState
 import com.sgg.healthykaly.widget.CustomErrorWidget
 
 /**
