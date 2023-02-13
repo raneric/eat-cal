@@ -1,16 +1,13 @@
 package com.sgg.healthykaly.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.sgg.healthykaly.model.Recipe
-import com.sgg.healthykaly.service.RecipeApi
+import com.sgg.healthykaly.repository.RecipeRepository
 import com.sgg.healthykaly.utils.LoadingState
 import kotlinx.coroutines.launch
 
-class RecipeViewModel : ViewModel() {
+class RecipeViewModel(private val recipeRepository: RecipeRepository,
+                      private val savedStateHandle: SavedStateHandle? = null) : ViewModel() {
     private var _recipes = MutableLiveData<List<Recipe>>()
     val recipes: LiveData<List<Recipe>>
         get() = _recipes
@@ -26,21 +23,19 @@ class RecipeViewModel : ViewModel() {
     private fun loadRecipe() {
         viewModelScope.launch {
             _loadingState.value = LoadingState.LOADING
-            try {
-                _recipes.value = RecipeApi.recipeService.findByFat(DEFAULT_FAT)
+            _recipes.value = recipeRepository.getAllRecipe()
+
+            if (recipes.value?.isNotEmpty()!!) {
                 _loadingState.value = LoadingState.DONE
-            } catch (e: Exception) {
-                Log.d("Retrofit Error", e.toString())
+            } else {
                 _loadingState.value = LoadingState.ERROR
             }
         }
     }
 
-    fun reloadData(){
+    fun reloadData() {
         loadRecipe()
     }
 
-    companion object {
-        const val DEFAULT_FAT = 25
-    }
+
 }

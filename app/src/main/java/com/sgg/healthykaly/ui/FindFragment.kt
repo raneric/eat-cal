@@ -7,13 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sgg.healthykaly.Injection
 import com.sgg.healthykaly.adapter.FindListAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
 import com.sgg.healthykaly.viewmodel.RecipeViewModel
+import com.sgg.healthykaly.viewmodel.RecipeViewModelFactory
 
 class FindFragment : Fragment() {
 
-    private val viewModel: RecipeViewModel by viewModels()
+
+    private val viewModel: RecipeViewModel by viewModels {
+        Injection.provideRecipeViewModel(this)
+    }
     private lateinit var binding: FragmentFindBinding
 
     override fun onCreateView(inflater: LayoutInflater,
