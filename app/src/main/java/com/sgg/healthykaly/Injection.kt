@@ -15,6 +15,10 @@ object Injection {
     }
 
     fun provideRecipeViewModel(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
-        return RecipeViewModelFactory(provideNetworkRepository(), owner)
+        return RecipeViewModelFactory(owner, provideNetworkRepository())
+    }
+
+    fun provideRecipeViewModelWithFakeRepository(owner: SavedStateRegistryOwner,fakeRepository:RecipeRepository): ViewModelProvider.Factory {
+        return RecipeViewModelFactory(owner, fakeRepository)
     }
 }

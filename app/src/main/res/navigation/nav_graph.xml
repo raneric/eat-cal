@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/findFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.sgg.healthykaly.ui.HomeFragment"
         android:label="@string/label_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_findFragment"
-            app:destination="@id/findFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_recentFragment"
-            app:destination="@id/recentFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/findFragment"
         android:name="com.sgg.healthykaly.ui.FindFragment"
         android:label="@string/label_find"
-        tools:layout="@layout/fragment_find" />
+        tools:layout="@layout/fragment_find" >
+        <action
+            android:id="@+id/action_findFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_findFragment_to_recentFragment"
+            app:destination="@id/recentFragment" />
+        <action
+            android:id="@+id/action_findFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/recentFragment"
         android:name="com.sgg.healthykaly.ui.RecentFragment"

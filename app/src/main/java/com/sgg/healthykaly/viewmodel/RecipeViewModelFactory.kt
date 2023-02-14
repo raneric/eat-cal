@@ -6,8 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
 import com.sgg.healthykaly.repository.RecipeRepository
 
-class RecipeViewModelFactory(private val recipeRepository:RecipeRepository,
-                             owner: SavedStateRegistryOwner) :
+class RecipeViewModelFactory(owner: SavedStateRegistryOwner,
+                             private val recipeRepository: RecipeRepository
+) :
         AbstractSavedStateViewModelFactory(owner, null) {
     override fun <T : ViewModel?> create(key: String,
                                          modelClass: Class<T>,

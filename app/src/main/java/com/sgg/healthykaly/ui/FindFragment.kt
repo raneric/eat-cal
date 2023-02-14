@@ -15,10 +15,10 @@ import com.sgg.healthykaly.viewmodel.RecipeViewModelFactory
 
 class FindFragment : Fragment() {
 
-
     private val viewModel: RecipeViewModel by viewModels {
         Injection.provideRecipeViewModel(this)
     }
+
     private lateinit var binding: FragmentFindBinding
 
     override fun onCreateView(inflater: LayoutInflater,
