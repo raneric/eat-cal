@@ -65,10 +65,14 @@ dependencies {
     implementation "io.coil-kt:coil:1.1.1"
 
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    //paging 3
+    implementation("androidx.paging:paging-runtime:$paging_version")
 
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"
+    // alternatively - without Android dependencies for tests
+    testImplementation("androidx.paging:paging-common:$paging_version")
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_version"
