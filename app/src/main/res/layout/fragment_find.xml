@@ -6,10 +6,8 @@
     <data>
 
         <variable
-            name="viewModel"
-            type="com.sgg.healthykaly.viewmodel.RecipeViewModel" />
-
-        <import type="com.sgg.healthykaly.utils.LoadingState" />
+            name="refreshListener"
+            type="com.sgg.healthykaly.widget.CustomErrorWidget.RefreshClickListener" />
 
         <import type="android.view.View" />
     </data>
@@ -25,7 +23,6 @@
             android:id="@+id/receipList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:recipeList="@{viewModel.recipes}"
             tools:listitem="@layout/receip_list_item">
 
         </androidx.recyclerview.widget.RecyclerView>
@@ -35,16 +32,15 @@
             style="@style/custom_progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="@{(viewModel.loadingState == LoadingState.LOADING)? View.VISIBLE: View.GONE}" />
+            android:layout_gravity="center" />
 
         <com.sgg.healthykaly.widget.CustomErrorWidget
+            android:id="@+id/errorWidget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/padding_error_widget"
             android:layout_marginRight="@dimen/padding_error_widget"
-            app:loadingState="@{viewModel.loadingState}"
-            app:onRefresh="@{() -> viewModel.reloadData()}"/>
+            app:onRefresh="@{refreshListener}" />
     </FrameLayout>
 </layout>

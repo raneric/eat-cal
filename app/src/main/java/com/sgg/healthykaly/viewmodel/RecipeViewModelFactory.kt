@@ -4,10 +4,11 @@ import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.savedstate.SavedStateRegistryOwner
+import com.sgg.healthykaly.repository.NetworkRecipeRepository
 import com.sgg.healthykaly.repository.RecipeRepository
 
 class RecipeViewModelFactory(owner: SavedStateRegistryOwner,
-                             private val recipeRepository: RecipeRepository
+                             private val recipeRepository: NetworkRecipeRepository
 ) :
         AbstractSavedStateViewModelFactory(owner, null) {
     override fun <T : ViewModel?> create(key: String,

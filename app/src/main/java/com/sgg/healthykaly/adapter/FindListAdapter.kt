@@ -2,13 +2,15 @@ package com.sgg.healthykaly.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sgg.healthykaly.databinding.ReceipListItemBinding
 import com.sgg.healthykaly.model.Recipe
 
-class FindListAdapter : ListAdapter<Recipe, FindListAdapter.RecipeListViewHolder>(diffCallback) {
+class FindListAdapter :
+        PagingDataAdapter<Recipe, FindListAdapter.RecipeListViewHolder>(diffCallback) {
 
     class RecipeListViewHolder(private val binding: ReceipListItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
@@ -29,7 +31,9 @@ class FindListAdapter : ListAdapter<Recipe, FindListAdapter.RecipeListViewHolder
     override fun onBindViewHolder(holder: RecipeListViewHolder,
                                   position: Int) {
         val recipe = getItem(position)
-        holder.bind(recipe)
+        recipe?.let {
+            holder.bind(recipe)
+        }
     }
 
     companion object {

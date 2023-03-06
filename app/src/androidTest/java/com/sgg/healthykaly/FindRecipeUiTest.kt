@@ -15,7 +15,7 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class FindRecipeUiTest {
-    private lateinit var fakeRepositoryWithEmptyList: RecipeRepository
+  /*  private lateinit var fakeRepositoryWithEmptyList: RecipeRepository
 
     @Before
     fun createFakeRepository() {
@@ -36,5 +36,5 @@ class FindRecipeUiTest {
                                                   fakeRepositoryWithEmptyList))[RecipeViewModel::class.java]
            assertEquals(LoadingState.ERROR, viewModel.loadingState.value)
         }
-    }
+    }*/
 }

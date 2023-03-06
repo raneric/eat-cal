@@ -23,4 +23,9 @@ class CustomErrorWidget @JvmOverloads constructor(context: Context,
         setBackgroundResource(R.drawable.error_background)
         visibility = GONE
     }
+
+    interface RefreshClickListener {
+        fun refresh()
+    }
 }
+

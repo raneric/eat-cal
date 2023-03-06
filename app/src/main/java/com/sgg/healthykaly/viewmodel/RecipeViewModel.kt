@@ -1,41 +1,34 @@
 package com.sgg.healthykaly.viewmodel
 
 import androidx.lifecycle.*
+import androidx.paging.PagingData
 import com.sgg.healthykaly.model.Recipe
+import com.sgg.healthykaly.repository.NetworkRecipeRepository
 import com.sgg.healthykaly.repository.RecipeRepository
 import com.sgg.healthykaly.utils.LoadingState
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class RecipeViewModel(private val recipeRepository: RecipeRepository,
+class RecipeViewModel(private val recipeRepository: NetworkRecipeRepository,
                       private val savedStateHandle: SavedStateHandle? = null) : ViewModel() {
-    private var _recipes = MutableLiveData<List<Recipe>>()
-    val recipes: LiveData<List<Recipe>>
-        get() = _recipes
 
-    private var _loadingState = MutableLiveData<LoadingState>()
-    val loadingState: MutableLiveData<LoadingState>
-        get() = _loadingState
+    private lateinit var _recipes: Flow<PagingData<Recipe>>
+    val recipes: Flow<PagingData<Recipe>>
+        get() = _recipes
 
     init {
         loadRecipe()
     }
 
     private fun loadRecipe() {
+        // Launch a coroutine in the ViewModel scope
         viewModelScope.launch {
-            _loadingState.value = LoadingState.LOADING
-            _recipes.value = recipeRepository.getAllRecipe()
-
-            if (recipes.value?.isNotEmpty()!!) {
-                _loadingState.value = LoadingState.DONE
-            } else {
-                _loadingState.value = LoadingState.ERROR
-            }
+            // Load recipes from the repository and update the LiveData object
+            _recipes = recipeRepository.getFlowOfRecipe()
         }
     }
 
     fun reloadData() {
         loadRecipe()
     }
-
-
 }
