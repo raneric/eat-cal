@@ -11,5 +11,4 @@ private const val API_KEY = BuildConfig.API_KEY
 interface RecipeService {
     @GET("findByNutrients?apiKey=${API_KEY}")
     suspend fun findByNutriments(@QueryMap queries: Map<String, Int> = QueryBuilder.defaultQuery): List<Recipe>
-
 }

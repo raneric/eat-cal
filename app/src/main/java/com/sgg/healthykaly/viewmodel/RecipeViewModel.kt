@@ -3,13 +3,11 @@ package com.sgg.healthykaly.viewmodel
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import com.sgg.healthykaly.model.Recipe
-import com.sgg.healthykaly.repository.NetworkRecipeRepository
 import com.sgg.healthykaly.repository.RecipeRepository
-import com.sgg.healthykaly.utils.LoadingState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class RecipeViewModel(private val recipeRepository: NetworkRecipeRepository,
+class RecipeViewModel(private val recipeRepository: RecipeRepository,
                       private val savedStateHandle: SavedStateHandle? = null) : ViewModel() {
 
     private lateinit var _recipes: Flow<PagingData<Recipe>>
@@ -17,18 +15,14 @@ class RecipeViewModel(private val recipeRepository: NetworkRecipeRepository,
         get() = _recipes
 
     init {
-        loadRecipe()
+        loadInitState()
     }
 
-    private fun loadRecipe() {
+    private fun loadInitState() {
         // Launch a coroutine in the ViewModel scope
         viewModelScope.launch {
             // Load recipes from the repository and update the LiveData object
-            _recipes = recipeRepository.getFlowOfRecipe()
+            _recipes = recipeRepository.getRecipes()
         }
-    }
-
-    fun reloadData() {
-        loadRecipe()
     }
 }
