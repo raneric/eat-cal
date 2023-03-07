@@ -2,6 +2,7 @@ package com.sgg.healthykaly.viewmodel
 
 import androidx.lifecycle.*
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
@@ -19,10 +20,10 @@ class RecipeViewModel(private val recipeRepository: RecipeRepository,
     }
 
     private fun loadInitState() {
-        // Launch a coroutine in the ViewModel scope
         viewModelScope.launch {
-            // Load recipes from the repository and update the LiveData object
             _recipes = recipeRepository.getRecipes()
+                    .cachedIn(viewModelScope
+                    )
         }
     }
 }
