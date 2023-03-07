@@ -11,13 +11,12 @@
 
     <TextView
         android:id="@+id/errorMessage"
+        style="@style/error_essage_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_error_item"
         android:text="@string/error_message"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/error_text_color"
         android:textSize="20sp" />
 
     <Button

@@ -4,4 +4,13 @@
     <style name="custom_progressbar" parent="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large">
         <item name="android:indeterminateTint">@color/amber_custom</item>
     </style>
+
+    <style name="custom_small_progressbar">
+        <item name="android:indeterminateTint">@color/amber_custom</item>
+    </style>
+
+    <style name="error_essage_style" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/error_text_color</item>
+        <item name="android:textSize">@dimen/font_size_error</item>
+    </style>
 </resources>

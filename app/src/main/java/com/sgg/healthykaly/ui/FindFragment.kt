@@ -15,6 +15,7 @@ import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sgg.healthykaly.Injection
 import com.sgg.healthykaly.adapter.FindListAdapter
+import com.sgg.healthykaly.adapter.RecipeLoadStateAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.viewmodel.RecipeViewModel
@@ -45,7 +46,8 @@ class FindFragment : Fragment() {
 
     private fun FragmentFindBinding.bindView(recipeFlow: Flow<PagingData<Recipe>>,
                                              adapter: FindListAdapter) {
-        receipList.adapter = adapter
+        receipList.adapter = adapter.withLoadStateHeaderAndFooter(header = RecipeLoadStateAdapter { adapter.retry() },
+                                                                  footer = RecipeLoadStateAdapter { adapter.retry() })
 
         viewLifecycleOwner.lifecycleScope.launch {
             adapter.loadStateFlow.collect { loadState ->
