@@ -8,7 +8,6 @@ import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryConstants
 import kotlinx.coroutines.flow.Flow
-
 class RemoteDataProvider(private val recipeService: RecipeService) : RecipeDataSourceProvider {
     override fun getFlowOfRecipes(queries: Map<String, Int>): Flow<PagingData<Recipe>> {
         return Pager(config = PagingConfig(pageSize = QueryConstants.DEFAULT_LOAD_SIZE,

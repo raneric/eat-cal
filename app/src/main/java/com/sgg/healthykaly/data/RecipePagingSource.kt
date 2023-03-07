@@ -4,7 +4,6 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.service.RecipeService
-import com.sgg.healthykaly.utils.QueryConstants
 import com.sgg.healthykaly.utils.QueryConstants.DEFAULT_LOAD_SIZE
 import com.sgg.healthykaly.utils.QueryConstants.PARAM_PAGE
 import com.sgg.healthykaly.utils.QueryConstants.INITIAL_PAGE

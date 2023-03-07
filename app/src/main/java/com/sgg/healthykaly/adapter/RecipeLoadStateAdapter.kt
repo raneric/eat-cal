@@ -1,11 +1,8 @@
 package com.sgg.healthykaly.adapter
 
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
-import androidx.recyclerview.widget.RecyclerView
-import com.sgg.healthykaly.databinding.LoadStateIndicatorBinding
 
 class RecipeLoadStateAdapter(private val refresh: () -> Unit) :
         LoadStateAdapter<LoadStateViewHolder>() {
