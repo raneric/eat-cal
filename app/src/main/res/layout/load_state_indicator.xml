@@ -10,7 +10,7 @@
 
         <TextView
             android:id="@+id/footerErrorMessage"
-            style="@style/error_essage_style"
+            style="@style/error_message_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
