@@ -19,7 +19,7 @@ import com.sgg.healthykaly.adapter.RecipeLoadStateAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.viewmodel.RecipeViewModel
-import com.sgg.healthykaly.widget.CustomErrorWidget
+import com.sgg.healthykaly.widget.CustomErrorWidget.RefreshListener
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
@@ -56,11 +56,7 @@ class FindFragment : Fragment() {
             }
         }
 
-        refreshListener = object : CustomErrorWidget.RefreshListener {
-            override fun refresh() {
-                adapter.retry()
-            }
-        }
+        refreshListener = RefreshListener { adapter.retry() }
 
         viewLifecycleOwner.lifecycleScope.launch {
             recipeFlow.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)

@@ -24,7 +24,7 @@ class CustomErrorWidget @JvmOverloads constructor(context: Context,
         visibility = GONE
     }
 
-    interface RefreshListener {
+    fun interface RefreshListener {
         fun refresh()
     }
 }

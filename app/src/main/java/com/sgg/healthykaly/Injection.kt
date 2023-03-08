@@ -10,7 +10,7 @@ import com.sgg.healthykaly.viewmodel.RecipeViewModelFactory
 
 object Injection {
 
-    private fun provideRemoteDataSource(): RecipeDataSourceProvider {
+    private fun provideRemoteDataSource(): RemoteDataProvider {
         return RemoteDataProvider(RecipeApi.recipeService)
     }
 
@@ -20,5 +20,10 @@ object Injection {
 
     fun provideRecipeViewModel(owner: SavedStateRegistryOwner): ViewModelProvider.Factory {
         return RecipeViewModelFactory(owner, provideRepository())
+    }
+
+    fun provideRecipeViewModelWithFakeRepository(owner: SavedStateRegistryOwner,
+                                                 repository: RecipeRepository): ViewModelProvider.Factory {
+        return RecipeViewModelFactory(owner, repository)
     }
 }
