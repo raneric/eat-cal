@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.adapter
+package com.sgg.healthykaly.ui.adapter
 
 import android.view.ViewGroup
 import androidx.paging.LoadState

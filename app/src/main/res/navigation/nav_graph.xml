@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.sgg.healthykaly.ui.HomeFragment"
+        android:name="com.sgg.healthykaly.ui.fragment.HomeFragment"
         android:label="@string/label_home"
         tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/findFragment"
-        android:name="com.sgg.healthykaly.ui.FindFragment"
+        android:name="com.sgg.healthykaly.ui.fragment.FindFragment"
         android:label="@string/label_find"
         tools:layout="@layout/fragment_find" >
         <action
@@ -27,12 +27,12 @@
     </fragment>
     <fragment
         android:id="@+id/recentFragment"
-        android:name="com.sgg.healthykaly.ui.RecentFragment"
+        android:name="com.sgg.healthykaly.ui.fragment.RecentFragment"
         android:label="@string/label_recent"
         tools:layout="@layout/fragment_recent" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.sgg.healthykaly.ui.ProfileFragment"
+        android:name="com.sgg.healthykaly.ui.fragment.ProfileFragment"
         android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

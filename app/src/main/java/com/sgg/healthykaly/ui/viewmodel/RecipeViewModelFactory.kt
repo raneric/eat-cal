@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.viewmodel
+package com.sgg.healthykaly.ui.viewmodel
 
 import androidx.lifecycle.AbstractSavedStateViewModelFactory
 import androidx.lifecycle.SavedStateHandle

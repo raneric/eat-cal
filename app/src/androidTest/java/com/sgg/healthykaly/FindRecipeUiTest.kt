@@ -7,12 +7,9 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.sgg.healthykaly.model.Recipe
 import com.sgg.healthykaly.repository.RecipeDataSourceProvider
 import com.sgg.healthykaly.repository.RecipeRepository
-import com.sgg.healthykaly.utils.LoadingState
-import com.sgg.healthykaly.viewmodel.RecipeViewModel
-import junit.framework.TestCase.assertEquals
+import com.sgg.healthykaly.ui.viewmodel.RecipeViewModel
 import kotlinx.coroutines.flow.Flow
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 

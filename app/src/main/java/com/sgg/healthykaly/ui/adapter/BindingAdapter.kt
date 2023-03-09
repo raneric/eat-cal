@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.adapter
+package com.sgg.healthykaly.ui.adapter
 
 import android.widget.Button
 import android.widget.ImageView

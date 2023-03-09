@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.ui
+package com.sgg.healthykaly.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,11 +14,11 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sgg.healthykaly.Injection
-import com.sgg.healthykaly.adapter.FindListAdapter
-import com.sgg.healthykaly.adapter.RecipeLoadStateAdapter
+import com.sgg.healthykaly.ui.adapter.FindListAdapter
+import com.sgg.healthykaly.ui.adapter.RecipeLoadStateAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
 import com.sgg.healthykaly.model.Recipe
-import com.sgg.healthykaly.viewmodel.RecipeViewModel
+import com.sgg.healthykaly.ui.viewmodel.RecipeViewModel
 import com.sgg.healthykaly.widget.CustomErrorWidget.RefreshListener
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
