@@ -22,8 +22,7 @@ class RecipeViewModel(private val recipeRepository: RecipeRepository,
     private fun loadInitState() {
         viewModelScope.launch {
             _recipes = recipeRepository.getRecipes()
-                    .cachedIn(viewModelScope
-                    )
+                    .cachedIn(viewModelScope)
         }
     }
 }

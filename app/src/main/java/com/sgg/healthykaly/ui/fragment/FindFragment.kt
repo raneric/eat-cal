@@ -25,16 +25,23 @@ import kotlinx.coroutines.launch
 
 class FindFragment : Fragment() {
 
+    private lateinit var binding: FragmentFindBinding
+
+    /**
+     * RecipeViewMode declaration using manual dependency injection
+     * This viewModeProvider function will automatically add dependency
+     * for remote data source to the viewModel
+     */
     private val viewModel: RecipeViewModel by viewModels {
         Injection.provideRecipeViewModel(this)
     }
 
-    private lateinit var binding: FragmentFindBinding
-
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         val adapter = FindListAdapter()
+
         binding = FragmentFindBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.bindView(viewModel.recipes, adapter)
@@ -49,6 +56,7 @@ class FindFragment : Fragment() {
         receipList.adapter = adapter.withLoadStateHeaderAndFooter(header = RecipeLoadStateAdapter { adapter.retry() },
                                                                   footer = RecipeLoadStateAdapter { adapter.retry() })
 
+        // Observe the adapter's load state flow from PagingDataAdapter
         viewLifecycleOwner.lifecycleScope.launch {
             adapter.loadStateFlow.collect { loadState ->
                 progressBar.isVisible = loadState.refresh is LoadState.Loading
@@ -56,8 +64,10 @@ class FindFragment : Fragment() {
             }
         }
 
+        // Set the refresh listener for the retry button on custom widget
         refreshListener = RefreshListener { adapter.retry() }
 
+        // Observe the recipe flow either remote or database source
         viewLifecycleOwner.lifecycleScope.launch {
             recipeFlow.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
                     .collect {
