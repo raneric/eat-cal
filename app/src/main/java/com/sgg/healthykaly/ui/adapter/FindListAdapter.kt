@@ -6,15 +6,15 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sgg.healthykaly.databinding.ReceipListItemBinding
-import com.sgg.healthykaly.model.Recipe
+import com.sgg.healthykaly.model.RecipeModel
 
 class FindListAdapter :
-        PagingDataAdapter<Recipe, FindListAdapter.RecipeListViewHolder>(diffCallback) {
+        PagingDataAdapter<RecipeModel, FindListAdapter.RecipeListViewHolder>(diffCallback) {
 
     class RecipeListViewHolder(private val binding: ReceipListItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
-        fun bind(recipe: Recipe) {
-            binding.receip = recipe
+        fun bind(recipeModel: RecipeModel) {
+            binding.receip = recipeModel
             binding.executePendingBindings()
         }
     }
@@ -36,14 +36,14 @@ class FindListAdapter :
     }
 
     companion object {
-        val diffCallback = object : DiffUtil.ItemCallback<Recipe>() {
-            override fun areItemsTheSame(oldItem: Recipe,
-                                         newItem: Recipe): Boolean {
+        val diffCallback = object : DiffUtil.ItemCallback<RecipeModel>() {
+            override fun areItemsTheSame(oldItem: RecipeModel,
+                                         newItem: RecipeModel): Boolean {
                 return oldItem.id == newItem.id
             }
 
-            override fun areContentsTheSame(oldItem: Recipe,
-                                            newItem: Recipe): Boolean {
+            override fun areContentsTheSame(oldItem: RecipeModel,
+                                            newItem: RecipeModel): Boolean {
                 return (oldItem.title == newItem.title) && (oldItem.image == newItem.image)
             }
         }

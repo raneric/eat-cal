@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.widget
+package com.sgg.healthykaly.ui.widget
 
 import android.content.Context
 import android.util.AttributeSet

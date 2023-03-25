@@ -2,7 +2,7 @@ package com.sgg.healthykaly.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.sgg.healthykaly.model.Recipe
+import com.sgg.healthykaly.model.RecipeModel
 import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryConstants.DEFAULT_LOAD_SIZE
 import com.sgg.healthykaly.utils.QueryConstants.PARAM_PAGE
@@ -11,15 +11,15 @@ import retrofit2.HttpException
 import java.io.IOException
 
 class RecipePagingSource(private val recipeService: RecipeService,
-                         private val query: Map<String, Int>) : PagingSource<Int, Recipe>() {
-    override fun getRefreshKey(state: PagingState<Int, Recipe>): Int? {
+                         private val query: Map<String, Int>) : PagingSource<Int, RecipeModel>() {
+    override fun getRefreshKey(state: PagingState<Int, RecipeModel>): Int? {
         return state.anchorPosition?.let { anchorPosition ->
             state.closestPageToPosition(anchorPosition)?.prevKey?.plus(1)
                     ?: state.closestPageToPosition(anchorPosition)?.nextKey?.minus(1)
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Recipe> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, RecipeModel> {
         val currentPage = params.key ?: INITIAL_PAGE
         val loadSize = params.loadSize
         val nextQuery = query.toMutableMap()

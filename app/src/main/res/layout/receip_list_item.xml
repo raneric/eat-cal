@@ -7,7 +7,7 @@
 
         <variable
             name="receip"
-            type="com.sgg.healthykaly.model.Recipe" />
+            type="com.sgg.healthykaly.model.RecipeModel" />
     </data>
 
     <FrameLayout

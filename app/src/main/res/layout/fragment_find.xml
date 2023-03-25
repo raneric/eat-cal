@@ -7,7 +7,7 @@
 
         <variable
             name="refreshListener"
-            type="com.sgg.healthykaly.widget.CustomErrorWidget.RefreshListener" />
+            type="com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener" />
 
         <import type="android.view.View" />
     </data>
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
-        <com.sgg.healthykaly.widget.CustomErrorWidget
+        <com.sgg.healthykaly.ui.widget.CustomErrorWidget
             android:id="@+id/errorWidget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 package com.sgg.healthykaly.model
 
-data class Recipe(
+data class RecipeModel(
         val id: Int,
         val title: String,
         val image: String,

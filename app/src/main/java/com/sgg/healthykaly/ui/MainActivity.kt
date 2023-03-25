@@ -1,4 +1,4 @@
-package com.sgg.healthykaly
+package com.sgg.healthykaly.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.sgg.healthykaly.R
 import com.sgg.healthykaly.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

@@ -6,7 +6,7 @@ import androidx.core.net.toUri
 import androidx.databinding.BindingAdapter
 import coil.load
 import com.sgg.healthykaly.R
-import com.sgg.healthykaly.widget.CustomErrorWidget
+import com.sgg.healthykaly.ui.widget.CustomErrorWidget
 
 /**
  * Binding function for imageView databinding that bind from URL using coil library
