@@ -14,7 +14,7 @@ class RecipeViewModelFactory(owner: SavedStateRegistryOwner,
                                          modelClass: Class<T>,
                                          handle: SavedStateHandle): T {
         if (modelClass.isAssignableFrom(RecipeViewModel::class.java)) {
-            return RecipeViewModel(recipeRepository, handle) as T
+            return RecipeViewModel(recipeRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class  ${modelClass::class.simpleName}")
     }

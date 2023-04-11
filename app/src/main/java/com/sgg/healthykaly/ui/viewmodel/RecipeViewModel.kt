@@ -7,9 +7,10 @@ import com.sgg.healthykaly.model.RecipeModel
 import com.sgg.healthykaly.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class RecipeViewModel(private val recipeRepository: RecipeRepository,
-                      private val savedStateHandle: SavedStateHandle? = null) : ViewModel() {
+
+class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRepository) : ViewModel() {
 
     private lateinit var _recipes: Flow<PagingData<RecipeModel>>
     val recipes: Flow<PagingData<RecipeModel>>
