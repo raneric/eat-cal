@@ -1,7 +1,6 @@
-package com.sgg.healthykaly.repository
+package com.sgg.healthykaly.data
 
 import androidx.paging.PagingData
-import com.sgg.healthykaly.data.RecipeDatabase
 import com.sgg.healthykaly.di.RemoteSource
 import com.sgg.healthykaly.model.RecipeModel
 import kotlinx.coroutines.flow.Flow

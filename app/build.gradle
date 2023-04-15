@@ -20,7 +20,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.sgg.healthykaly.CustomTestRunner"
 
         buildConfigField("String", "API_KEY", apikeyProperties['API_KEY'])
         buildConfigField("String", "BASE_URL", apikeyProperties['BASE_URL'])
@@ -79,15 +79,24 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
-
     testImplementation 'junit:junit:4.13.2'
     testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin_version"
     // alternatively - without Android dependencies for tests
     testImplementation("androidx.paging:paging-common:$paging_version")
 
+    kaptTest("com.google.dagger:hilt-android-compiler:$hilt_version")
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation "androidx.test.espresso:espresso-core:$expresso_version"
+
+    // For instrumented tests.
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    // ...with Kotlin.
+    kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hilt_version"
+    // ...with Java.
+    androidTestAnnotationProcessor "com.google.dagger:hilt-android-compiler:$hilt_version"
+
     // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 }

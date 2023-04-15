@@ -41,5 +41,4 @@ object RetrofitModule {
     fun provideRecipeService(): RecipeService {
         return retrofit.create(RecipeService::class.java)
     }
-
 }

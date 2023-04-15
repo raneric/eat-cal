@@ -1,8 +1,8 @@
 package com.sgg.healthykaly.di
 
-import com.sgg.healthykaly.repository.DatabaseProvider
-import com.sgg.healthykaly.repository.RecipeDataSourceProvider
-import com.sgg.healthykaly.repository.RemoteDataProvider
+import com.sgg.healthykaly.data.DatabaseProvider
+import com.sgg.healthykaly.data.RecipeDataSourceProvider
+import com.sgg.healthykaly.data.RemoteDataProvider
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,8 +16,9 @@ annotation class DatabaseSource
 @Qualifier
 annotation class RemoteSource
 
-@InstallIn(SingletonComponent::class)
+
 @Module
+@InstallIn(SingletonComponent::class)
 abstract class DatabaseDataProviderModule {
     @DatabaseSource
     @Singleton
@@ -26,8 +27,8 @@ abstract class DatabaseDataProviderModule {
 
 }
 
-@InstallIn(SingletonComponent::class)
 @Module
+@InstallIn(SingletonComponent::class)
 abstract class RemoteDataProviderModule {
     @RemoteSource
     @Singleton

@@ -1,4 +1,4 @@
-package com.sgg.healthykaly.repository
+package com.sgg.healthykaly.data
 
 import androidx.paging.PagingData
 import com.sgg.healthykaly.model.RecipeModel

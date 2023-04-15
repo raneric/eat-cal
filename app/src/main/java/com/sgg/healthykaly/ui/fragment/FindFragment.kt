@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -31,15 +30,6 @@ class FindFragment : Fragment() {
 
     @Inject
     lateinit var viewModel: RecipeViewModel
-
-    /**
-     * RecipeViewMode declaration using manual dependency injection
-     * This viewModeProvider function will automatically add dependency
-     * for remote data source to the viewModel
-     */
-    /*private val viewModel: RecipeViewModel by viewModels {
-        Injection.provideRecipeViewModel(this)
-    }*/
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
