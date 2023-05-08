@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_findFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_findFragment_to_recipeDetailsragment"
+            app:destination="@id/recipeDetailsragment" />
     </fragment>
     <fragment
         android:id="@+id/recentFragment"
@@ -35,4 +38,8 @@
         android:name="com.sgg.healthykaly.ui.fragment.ProfileFragment"
         android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/recipeDetailsragment"
+        android:name="com.sgg.healthykaly.ui.fragment.RecipeDetailsragment"
+        android:label="RecipeDetailsragment" />
 </navigation>

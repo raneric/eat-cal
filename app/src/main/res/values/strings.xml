@@ -5,7 +5,7 @@
     <string name="tittle_recent_bottom_nav">Favoris</string>
     <string name="tittle_profile_bottom_nav">Profile</string>
     <string name="label_home">Home</string>
-    <string name="label_find">Find</string>
+    <string name="label_find">Find recipe</string>
     <string name="label_recent">Recent</string>
     <string name="label_profile">Profile</string>
     <string name="food_picture">Food picture</string>
@@ -17,4 +17,6 @@
     <string name="content_desctiption_error">Erro loading page</string>
     <string name="txt_retry_button">Refresh</string>
     <string name="error_message">Error! please check your Wifi or your internet connection</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

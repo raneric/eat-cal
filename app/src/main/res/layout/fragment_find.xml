@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="refreshListener"
             type="com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener" />

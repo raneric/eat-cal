@@ -17,3 +17,16 @@ data class RecipeEntity(
         val carbs: String?
 ) {
 }
+
+fun RecipeEntity.asRetrofitModel(): RecipeModel {
+    return RecipeModel(
+        id = this.id,
+        title = this.title,
+        image = this.image,
+        imageType = this.imageType,
+        calories = this.calories,
+        protein = this.protein,
+        fat = this.fat,
+        carbs = this.carbs
+    )
+}
