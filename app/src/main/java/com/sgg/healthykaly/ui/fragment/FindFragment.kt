@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sgg.healthykaly.ui.adapter.FindListAdapter
 import com.sgg.healthykaly.ui.adapter.RecipeLoadStateAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
+import com.sgg.healthykaly.model.RecipeEntity
 import com.sgg.healthykaly.model.RecipeModel
 import com.sgg.healthykaly.ui.viewmodel.RecipeViewModel
 import com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener
@@ -42,7 +43,7 @@ class FindFragment : Fragment() {
         return binding.root
     }
 
-    private fun FragmentFindBinding.bindView(recipeModelFlow: Flow<PagingData<RecipeModel>>,
+    private fun FragmentFindBinding.bindView(recipeModelFlow: Flow<PagingData<RecipeEntity>>,
                                              adapter: FindListAdapter) {
         lifecycleOwner = this@FindFragment
         receipList.adapter = adapter.withLoadStateHeaderAndFooter(header = RecipeLoadStateAdapter { adapter.retry() },

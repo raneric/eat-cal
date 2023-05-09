@@ -12,7 +12,7 @@ import javax.inject.Inject
 class RemoteDataProvider @Inject constructor(private val recipeService: RecipeService) :
         RecipeDataSourceProvider {
     override fun getFlowOfRecipes(queries: Map<String, Int>): Flow<PagingData<RecipeModel>> {
-        return Pager(config = PagingConfig(pageSize = QueryConstants.DEFAULT_LOAD_SIZE,
+       return Pager(config = PagingConfig(pageSize = QueryConstants.DEFAULT_LOAD_SIZE,
                                            enablePlaceholders = false),
                      pagingSourceFactory = { RecipePagingSource(recipeService, queries) }).flow
     }

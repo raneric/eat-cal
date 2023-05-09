@@ -1,20 +1,38 @@
 package com.sgg.healthykaly.repository
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.sgg.healthykaly.data.RecipeDataSourceProvider
+import com.sgg.healthykaly.data.RecipeDatabase
+import com.sgg.healthykaly.data.RecipeRemoteMediator
 import com.sgg.healthykaly.di.RemoteSource
-import com.sgg.healthykaly.model.RecipeModel
+import com.sgg.healthykaly.model.RecipeEntity
+import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryBuilder
+import com.sgg.healthykaly.utils.QueryConstants
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class RecipeRepository @Inject constructor(
-        @RemoteSource
-        private val recipeDataSource: RecipeDataSourceProvider
+        private val recipeService: RecipeService,
+        private val recipeDatabase: RecipeDatabase
 ) {
-    fun getRecipes(query: Map<String, Int> = QueryBuilder.defaultQuery): Flow<PagingData<RecipeModel>> {
-        return recipeDataSource.getFlowOfRecipes(query)
+    @OptIn(ExperimentalPagingApi::class)
+    fun getRecipes(query: Map<String, Int> = QueryBuilder.defaultQuery): Flow<PagingData<RecipeEntity>> {
+        val pagingSourceFactory = {
+            recipeDatabase.recipeDao()
+                    .findAllRecipe()
+        }
+        return Pager(config = PagingConfig(pageSize = QueryConstants.DEFAULT_LOAD_SIZE,
+                                           enablePlaceholders = false),
+                     remoteMediator = RecipeRemoteMediator(queries = query,
+                                                           recipeService = recipeService,
+                                                           recipeDatabase = recipeDatabase),
+                     pagingSourceFactory = pagingSourceFactory).flow
+
     }
 }
