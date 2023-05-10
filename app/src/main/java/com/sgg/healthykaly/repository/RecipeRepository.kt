@@ -4,10 +4,8 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.sgg.healthykaly.data.RecipeDataSourceProvider
 import com.sgg.healthykaly.data.RecipeDatabase
 import com.sgg.healthykaly.data.RecipeRemoteMediator
-import com.sgg.healthykaly.di.RemoteSource
 import com.sgg.healthykaly.model.RecipeEntity
 import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryBuilder
