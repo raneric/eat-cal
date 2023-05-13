@@ -50,7 +50,7 @@ class RecipeRemoteMediator(private val queries: Map<String, Int>,
                     .map { it.asDatabaseEntity() }
 
             recipeDatabase.withTransaction {
-                val nextPage = newQuery[PARAM_PAGE]!!.plus(1)
+                val nextPage = newQuery[PARAM_PAGE]!!.plus(6)
                 remotePageDao.deleteRemotePage()
                 remotePageDao.insertOne(RemotePageEntity(nextPage = nextPage))
                 if (loadType == LoadType.REFRESH) {

@@ -11,4 +11,6 @@
     <dimen name="border_radius_error">10dp</dimen>
     <dimen name="margin_error_item">5dp</dimen>
     <dimen name="font_size_error">16sp</dimen>
+    <dimen name="elevation_fab">10dp</dimen>
+    <dimen name="size_list_item_image">150dp</dimen>
 </resources>

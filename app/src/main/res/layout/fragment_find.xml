@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="refreshListener"
             type="com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener" />
@@ -17,6 +18,21 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".ui.fragment.FindFragment">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_scroll_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/elevation_fab"
+            android:layout_marginBottom="@dimen/elevation_fab"
+            android:adjustViewBounds="true"
+            android:clickable="true"
+            android:contentDescription="@string/fab_content_des"
+            android:focusable="true"
+            android:scaleType="fitStart"
+            android:visibility="gone"
+            app:srcCompat="@drawable/baseline_arrow_upward_24" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/receipList"
@@ -40,6 +56,9 @@
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="@dimen/padding_error_widget"
             android:layout_marginRight="@dimen/padding_error_widget"
-            app:onRefresh="@{refreshListener}" />
+            app:onRefresh="@{refreshListener}">
+
+        </com.sgg.healthykaly.ui.widget.CustomErrorWidget>
+
     </FrameLayout>
 </layout>
