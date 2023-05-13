@@ -5,16 +5,14 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import com.sgg.healthykaly.R
-import com.sgg.healthykaly.di.RemoteDataProviderModule
 import com.sgg.healthykaly.ui.MainActivity
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
-import dagger.hilt.android.testing.UninstallModules
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-@UninstallModules(RemoteDataProviderModule::class)
+
 @HiltAndroidTest
 class FindRecipeUiWithData {
 

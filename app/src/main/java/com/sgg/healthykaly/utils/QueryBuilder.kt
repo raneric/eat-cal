@@ -8,8 +8,11 @@ import com.sgg.healthykaly.utils.QueryConstants.PARAM_MAX_FAT
 import com.sgg.healthykaly.utils.QueryConstants.PARAM_PAGE
 
 class QueryBuilder {
-    private val queryMap: MutableMap<String, Int> = mutableMapOf(PARAM_LOAD_SIZE to DEFAULT_LOAD_SIZE,
-                                                                 PARAM_PAGE to INITIAL_PAGE)
+
+    private val queryMap: MutableMap<String, Int> = mutableMapOf(
+        PARAM_LOAD_SIZE to DEFAULT_LOAD_SIZE,
+        PARAM_PAGE to INITIAL_PAGE
+    )
 
     fun addParam(key: String,
                  value: Int): QueryBuilder {

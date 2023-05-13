@@ -9,6 +9,10 @@
             name="refreshListener"
             type="com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener" />
 
+        <variable
+            name="fabListener"
+            type="android.view.View.OnClickListener" />
+
         <import type="android.view.View" />
     </data>
 
@@ -30,6 +34,7 @@
             android:clickable="true"
             android:contentDescription="@string/fab_content_des"
             android:focusable="true"
+            android:onClick="@{fabListener}"
             android:scaleType="fitStart"
             android:visibility="gone"
             app:srcCompat="@drawable/baseline_arrow_upward_24" />
