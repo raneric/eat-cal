@@ -63,7 +63,7 @@ class FindFragment : Fragment() {
             layoutManager = LinearLayoutManager(context,
                                                 LinearLayoutManager.VERTICAL,
                                                 false)
-            addOnScrollListener(recipesScrollListener())
+            addOnScrollListener(recipesScrollListener)
         }
 
         // Observe the adapter's load state flow from PagingDataAdapter
@@ -109,7 +109,7 @@ class FindFragment : Fragment() {
     /**
      * Recycler viw scroll listener that update the fab visibility depending on the scroll position
      */
-    private fun recipesScrollListener() = object : RecyclerView.OnScrollListener() {
+    private val recipesScrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrolled(recyclerView: RecyclerView,
                                 dx: Int,
                                 dy: Int) {
