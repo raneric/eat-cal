@@ -15,7 +15,7 @@ class CustomErrorWidget @JvmOverloads constructor(context: Context,
         LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     init {
-        orientation = LinearLayout.VERTICAL
+        orientation = VERTICAL
         gravity = Gravity.CENTER
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         inflater.inflate(R.layout.custom_error, this)

@@ -12,6 +12,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.sgg.healthykaly.R
 import com.sgg.healthykaly.ui.adapter.FindListAdapter
 import com.sgg.healthykaly.ui.adapter.RecipeLoadStateAdapter
 import com.sgg.healthykaly.databinding.FragmentFindBinding
@@ -21,6 +23,7 @@ import com.sgg.healthykaly.ui.viewmodel.RecipeViewModel
 import com.sgg.healthykaly.ui.widget.CustomErrorWidget.RefreshListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.count
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -55,7 +58,12 @@ class FindFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             adapter.loadStateFlow.collect { loadState ->
                 progressBar.isVisible = loadState.refresh is LoadState.Loading
-                errorWidget.isVisible = loadState.refresh is LoadState.Error
+                errorWidget.isVisible = loadState.refresh is LoadState.Error && adapter.itemCount == 0
+                if (loadState.refresh is LoadState.Error && adapter.itemCount > 0) {
+                    showSnackBar(getString(R.string.error_loading_data)) {
+                        adapter.retry()
+                    }
+                }
             }
         }
 
@@ -70,4 +78,16 @@ class FindFragment : Fragment() {
                     }
         }
     }
+
+    private fun showSnackBar(message: String,
+                             action: () -> Unit) {
+        Snackbar.make(binding.root,
+                      message,
+                      Snackbar.LENGTH_LONG)
+                .setAction(getString(R.string.txt_retry_button)) {
+                    action
+                }
+                .show()
+    }
+
 }
