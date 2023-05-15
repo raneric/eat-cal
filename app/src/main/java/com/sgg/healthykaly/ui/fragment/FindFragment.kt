@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -42,7 +43,7 @@ class FindFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val recipeListAdapter = FindListAdapter()
+        val recipeListAdapter = FindListAdapter { openDetail() }
 
         binding = FragmentFindBinding.inflate(inflater)
         binding.bindView(viewModel.recipes, recipeListAdapter)
@@ -123,6 +124,12 @@ class FindFragment : Fragment() {
                 if (binding.fabScrollTop.isGone) fabAnimation.fadeIn()
             }
         }
+    }
+
+    private fun openDetail() {
+        val action = FindFragmentDirections.actionFindFragmentToRecipeDetailsragment()
+        this.findNavController()
+                .navigate(action)
     }
 }
 

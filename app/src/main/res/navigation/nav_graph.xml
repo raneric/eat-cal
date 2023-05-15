@@ -40,6 +40,6 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/recipeDetailsragment"
-        android:name="com.sgg.healthykaly.ui.fragment.RecipeDetailsragment"
+        android:name="com.sgg.healthykaly.ui.fragment.RecipeDetailsFragment"
         android:label="RecipeDetailsragment" />
 </navigation>

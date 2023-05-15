@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sgg.healthykaly.databinding.ReceipListItemBinding
 import com.sgg.healthykaly.model.RecipeEntity
-import com.sgg.healthykaly.model.RecipeModel
 
-class FindListAdapter :
+class FindListAdapter(private val itemClickListener: () -> Unit) :
         PagingDataAdapter<RecipeEntity, FindListAdapter.RecipeListViewHolder>(diffCallback) {
 
     class RecipeListViewHolder(private val binding: ReceipListItemBinding) :
@@ -33,6 +32,9 @@ class FindListAdapter :
         val recipe = getItem(position)
         recipe?.let {
             holder.bind(recipe)
+            holder.itemView.setOnClickListener {
+                itemClickListener()
+            }
         }
     }
 
