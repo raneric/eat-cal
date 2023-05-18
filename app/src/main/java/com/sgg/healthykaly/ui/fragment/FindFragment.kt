@@ -43,7 +43,7 @@ class FindFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        val recipeListAdapter = FindListAdapter { openDetail() }
+        val recipeListAdapter = FindListAdapter { openRecipeSummary(it) }
 
         binding = FragmentFindBinding.inflate(inflater)
         binding.bindView(viewModel.recipes, recipeListAdapter)
@@ -126,8 +126,8 @@ class FindFragment : Fragment() {
         }
     }
 
-    private fun openDetail() {
-        val action = FindFragmentDirections.actionFindFragmentToRecipeDetailsragment()
+    private fun openRecipeSummary(id: Int) {
+        val action = FindFragmentDirections.actionFindFragmentToRecipeDetailsragment(id)
         this.findNavController()
                 .navigate(action)
     }

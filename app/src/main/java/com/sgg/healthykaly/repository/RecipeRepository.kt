@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import com.sgg.healthykaly.data.RecipeDatabase
 import com.sgg.healthykaly.data.RecipeRemoteMediator
 import com.sgg.healthykaly.model.RecipeEntity
+import com.sgg.healthykaly.model.RecipeSummaryModel
 import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryBuilder
 import com.sgg.healthykaly.utils.QueryConstants
@@ -32,5 +33,14 @@ class RecipeRepository @Inject constructor(
                                                            recipeDatabase = recipeDatabase),
                      pagingSourceFactory = pagingSourceFactory).flow
 
+    }
+
+    suspend fun getRecipe(id: Int): RecipeEntity {
+        return recipeDatabase.recipeDao()
+                .findOneById(id)
+    }
+
+    suspend fun getRecipeSummary(recipeId: Int): RecipeSummaryModel {
+        return recipeService.findRecipeSummary(recipeId)
     }
 }

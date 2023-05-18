@@ -4,9 +4,9 @@ import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.sgg.healthykaly.model.RecipeEntity
+import com.sgg.healthykaly.model.RecipeSummaryModel
 import com.sgg.healthykaly.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -18,12 +18,20 @@ class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRe
     val recipes: Flow<PagingData<RecipeEntity>>
         get() = _recipes
 
+    private lateinit var _recipeSummary: RecipeSummaryModel
+
+    private lateinit var _selectedRecipe: RecipeEntity
+
     init {
         loadInitState()
     }
 
-    fun isDataEmpty(): Boolean {
-        return _recipes.filterNotNull() == null
+    suspend fun getRecipe(id: Int): RecipeEntity {
+        return recipeRepository.getRecipe(id)
+    }
+
+    suspend fun getRecipeSummary(id: Int): RecipeSummaryModel {
+        return recipeRepository.getRecipeSummary(id)
     }
 
     private fun loadInitState() {

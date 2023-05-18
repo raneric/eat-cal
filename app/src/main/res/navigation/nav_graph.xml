@@ -41,5 +41,9 @@
     <fragment
         android:id="@+id/recipeDetailsragment"
         android:name="com.sgg.healthykaly.ui.fragment.RecipeDetailsFragment"
-        android:label="RecipeDetailsragment" />
+        android:label="RecipeDetailsragment" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

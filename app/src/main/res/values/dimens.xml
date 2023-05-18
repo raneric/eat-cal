@@ -13,8 +13,8 @@
     <dimen name="font_size_error">16sp</dimen>
     <dimen name="elevation_fab">10dp</dimen>
     <dimen name="size_list_item_image">150dp</dimen>
-    <dimen name="padding_v_nested_scroll_view">12dp</dimen>
-    <dimen name="padding_h_nested_scroll_view">8dp</dimen>
+    <dimen name="padding_v_nested_scroll_view">15dp</dimen>
+    <dimen name="padding_h_nested_scroll_view">12dp</dimen>
     <dimen name="negative_margin_scroll_view">-25dp</dimen>
     <dimen name="padding_title_left">10dp</dimen>
     <dimen name="margin_title_bottom">35dp</dimen>

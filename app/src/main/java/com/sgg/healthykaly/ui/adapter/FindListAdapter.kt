@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sgg.healthykaly.databinding.ReceipListItemBinding
 import com.sgg.healthykaly.model.RecipeEntity
 
-class FindListAdapter(private val itemClickListener: () -> Unit) :
+class FindListAdapter(private val itemClickListener: (Int) -> Unit) :
         PagingDataAdapter<RecipeEntity, FindListAdapter.RecipeListViewHolder>(diffCallback) {
 
     class RecipeListViewHolder(private val binding: ReceipListItemBinding) :
             RecyclerView.ViewHolder(binding.root) {
         fun bind(recipeModel: RecipeEntity) {
-            binding.receip = recipeModel
+            binding.recipe = recipeModel
             binding.executePendingBindings()
         }
     }
@@ -33,7 +33,7 @@ class FindListAdapter(private val itemClickListener: () -> Unit) :
         recipe?.let {
             holder.bind(recipe)
             holder.itemView.setOnClickListener {
-                itemClickListener()
+                itemClickListener(recipe.id)
             }
         }
     }
