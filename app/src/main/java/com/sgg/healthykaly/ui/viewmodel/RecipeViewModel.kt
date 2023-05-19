@@ -18,10 +18,6 @@ class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRe
     val recipes: Flow<PagingData<RecipeEntity>>
         get() = _recipes
 
-    private lateinit var _recipeSummary: RecipeSummaryModel
-
-    private lateinit var _selectedRecipe: RecipeEntity
-
     init {
         loadInitState()
     }
