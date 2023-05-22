@@ -19,4 +19,5 @@
     <string name="error_message">Error! please check your Wifi or your internet connection</string>
     <string name="error_loading_data">Error loading data</string>
     <string name="fab_content_des">Scroll to the top o list</string>
+    <string name="label_recipe_details">Recipe Summary</string>
 </resources>

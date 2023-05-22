@@ -8,10 +8,13 @@ import com.sgg.healthykaly.data.RecipeDatabase
 import com.sgg.healthykaly.data.RecipeRemoteMediator
 import com.sgg.healthykaly.model.RecipeEntity
 import com.sgg.healthykaly.model.RecipeSummaryModel
+import com.sgg.healthykaly.model.SummaryResults
 import com.sgg.healthykaly.service.RecipeService
 import com.sgg.healthykaly.utils.QueryBuilder
 import com.sgg.healthykaly.utils.QueryConstants
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -40,7 +43,14 @@ class RecipeRepository @Inject constructor(
                 .findOneById(id)
     }
 
-    suspend fun getRecipeSummary(recipeId: Int): RecipeSummaryModel {
-        return recipeService.findRecipeSummary(recipeId)
+    suspend fun getRecipeSummary(recipeId: Int): Flow<SummaryResults> {
+        return flow {
+            try {
+                val result = recipeService.findRecipeSummary(recipeId)
+                emit(SummaryResults.Success(result))
+            } catch (e: Exception) {
+                emit(SummaryResults.Error(e.message))
+            }
+        }
     }
 }

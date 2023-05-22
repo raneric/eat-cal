@@ -20,8 +20,7 @@ class FindListAdapter(private val itemClickListener: (Int) -> Unit) :
                                                     false)
         val vieHolder = RecipeListViewHolder(binding)
         vieHolder.itemView.setOnClickListener {
-            val recipe = getItem(vieHolder.bindingAdapterPosition)
-            recipe?.let { item ->
+            getItem(vieHolder.bindingAdapterPosition)?.let { item ->
                 itemClickListener(item.id)
             }
         }
@@ -56,6 +55,5 @@ class FindListAdapter(private val itemClickListener: (Int) -> Unit) :
             binding.recipe = recipeModel
             binding.executePendingBindings()
         }
-
     }
 }

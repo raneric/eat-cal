@@ -26,7 +26,7 @@
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_findFragment_to_recipeDetailsragment"
-            app:destination="@id/recipeDetailsragment" />
+            app:destination="@id/recipeDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/recentFragment"
@@ -39,9 +39,9 @@
         android:label="@string/label_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/recipeDetailsragment"
+        android:id="@+id/recipeDetailsFragment"
         android:name="com.sgg.healthykaly.ui.fragment.RecipeDetailsFragment"
-        android:label="RecipeDetailsragment" >
+        android:label="@string/label_recipe_details" >
         <argument
             android:name="id"
             app:argType="integer" />

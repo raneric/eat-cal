@@ -1,3 +1,6 @@
 package com.sgg.healthykaly.model
 
-data class Results(val results: List<RecipeModel>)
+sealed class SummaryResults() {
+    data class Success(val summary: RecipeSummaryModel) : SummaryResults()
+    data class Error(val message: String?) : SummaryResults()
+}

@@ -5,6 +5,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.sgg.healthykaly.model.RecipeEntity
 import com.sgg.healthykaly.model.RecipeSummaryModel
+import com.sgg.healthykaly.model.SummaryResults
 import com.sgg.healthykaly.repository.RecipeRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -26,7 +27,7 @@ class RecipeViewModel @Inject constructor(private val recipeRepository: RecipeRe
         return recipeRepository.getRecipe(id)
     }
 
-    suspend fun getRecipeSummary(id: Int): RecipeSummaryModel {
+    suspend fun getRecipeSummary(id: Int): Flow<SummaryResults>  {
         return recipeRepository.getRecipeSummary(id)
     }
 

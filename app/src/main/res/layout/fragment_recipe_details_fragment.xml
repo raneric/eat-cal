@@ -43,7 +43,7 @@
 
                 <TextView
                     android:id="@+id/details_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="@dimen/margin_title_bottom"
@@ -59,6 +59,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/negative_margin_scroll_view"
@@ -79,7 +80,6 @@
                 app:htmlText="@{recipeSummary.summary}"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eleifend ac tellus id bibendum. Nulla eget nibh maximus, ornare est congue, egestas elit. Suspendisse in faucibus ex. Integer congue scelerisque mi quis molestie. Aenean tincidunt nunc sit amet neque finibus, quis tincidunt erat ornare. Aliquam quam purus, bibendum at tellus sed, vestibulum faucibus dolor. Nulla at ligula massa. Sed finibus dolor ut fermentum pharetra. Nullam at faucibus mi. Praesent dui sem, hendrerit vitae vestibulum eu, viverra at dui. Interdum et malesuada fames ac ante ipsum primis in faucibus.  Fusce blandit metus diam. Vivamus fringilla finibus nibh vel pretium. Aenean et dui dignissim, cursus neque eu, scelerisque lorem. Nunc ante ex, blandit eget cursus ac, tincidunt non ipsum. Sed blandit risus pharetra erat facilisis congue. Quisque eu elementum ipsum, vitae posuere lectus. Donec nec lorem semper, ullamcorper nibh sed, efficitur libero. In faucibus rhoncus metus sit amet porta. Curabitur tempus est massa, vel molestie magna pharetra vel. Cras nunc purus, imperdiet eu purus vel, laoreet fermentum leo.  Etiam vitae aliquet odio. Nam sit amet sem nibh. Suspendisse vel condimentum lacus. Praesent dapibus nibh eget ante commodo aliquet. Nam rhoncus felis odio, laoreet ullamcorper sem eleifend eget. Integer a ex elit. Vestibulum porttitor luctus mollis. Etiam rhoncus mauris quis libero imperdiet suscipit at eu mi." />
         </androidx.core.widget.NestedScrollView>
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

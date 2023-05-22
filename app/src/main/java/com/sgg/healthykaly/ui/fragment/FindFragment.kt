@@ -14,7 +14,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
 import com.sgg.healthykaly.R
 import com.sgg.healthykaly.ui.adapter.FindListAdapter
 import com.sgg.healthykaly.ui.adapter.RecipeLoadStateAdapter
@@ -67,13 +66,17 @@ class FindFragment : Fragment() {
             addOnScrollListener(recipesScrollListener)
         }
 
+        swipeRefreshLayout.setOnRefreshListener {
+            recipeListAdapter.refresh()
+        }
+
         // Observe the adapter's load state flow from PagingDataAdapter
         viewLifecycleOwner.lifecycleScope.launch {
             recipeListAdapter.loadStateFlow.collect { loadState ->
-                progressBar.isVisible = loadState.isLoading()
+                swipeRefreshLayout.isRefreshing = loadState.isLoading()
                 errorWidget.isVisible = loadState.isError() && recipeListAdapter.isEmpty()
                 if (loadState.isError() && recipeListAdapter.isNotEmpty()) {
-                    showSnackBar(getString(R.string.error_loading_data)) {
+                    showRefreshSnackBar(binding.root, requireContext()) {
                         recipeListAdapter.retry()
                     }
                 }
@@ -94,17 +97,6 @@ class FindFragment : Fragment() {
                         recipeListAdapter.submitData(it)
                     }
         }
-    }
-
-    private fun showSnackBar(message: String,
-                             action: () -> Unit) {
-        Snackbar.make(binding.root,
-                      message,
-                      Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.txt_retry_button)) {
-                    action
-                }
-                .show()
     }
 
     /**
