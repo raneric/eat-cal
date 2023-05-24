@@ -28,7 +28,7 @@ class FindRecipeUiWithData {
     fun testErrorAndLoadingIsHiddenWhenDataIsLoaded() {
         ActivityScenario.launch(MainActivity::class.java)
         onView(withId(R.id.errorWidget)).check(matches(withEffectiveVisibility(Visibility.GONE)))
-        onView(withId(R.id.progressBar)).check(matches(withEffectiveVisibility(Visibility.GONE)))
+        onView(withId(R.id.summaryProgressBar)).check(matches(withEffectiveVisibility(Visibility.GONE)))
     }
 }
 

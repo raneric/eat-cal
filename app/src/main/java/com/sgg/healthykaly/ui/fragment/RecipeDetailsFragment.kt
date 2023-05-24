@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.sgg.healthykaly.R
@@ -20,7 +22,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class RecipeDetailsFragment : Fragment() {
 
-    private lateinit var _binding: FragmentRecipeDetailsFragmentBinding
+    private lateinit var binding: FragmentRecipeDetailsFragmentBinding
 
     private val args: RecipeDetailsFragmentArgs by navArgs()
 
@@ -36,9 +38,9 @@ class RecipeDetailsFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        _binding = FragmentRecipeDetailsFragmentBinding.inflate(inflater)
-        _binding.bindView(args.id)
-        return _binding.root
+        binding = FragmentRecipeDetailsFragmentBinding.inflate(inflater)
+        binding.bindView(args.id)
+        return binding.root
     }
 
     private fun FragmentRecipeDetailsFragmentBinding.bindView(recipeId: Int) {
@@ -46,11 +48,12 @@ class RecipeDetailsFragment : Fragment() {
             recipe = viewModel.getRecipe(recipeId)
             viewModel.getRecipeSummary(recipeId)
                     .collect { summaryResult ->
+                        summaryProgressBar.isGone = summaryResult !is SummaryResults.Loading
                         if (summaryResult is SummaryResults.Success) {
                             recipeSummary = summaryResult.summary
                         } else if (summaryResult is SummaryResults.Error) {
-                            showRefreshSnackBar(_binding.root, requireContext()) {
-                                print("ok")
+                            showRefreshSnackBar(binding.root, requireContext()) {
+                                TODO("handle click listener")
                             }
                         }
                     }
