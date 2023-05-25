@@ -48,14 +48,22 @@ class RecipeDetailsFragment : Fragment() {
             recipe = viewModel.getRecipe(recipeId)
             viewModel.getRecipeSummary(recipeId)
                     .collect { summaryResult ->
-                        summaryProgressBar.isGone = summaryResult !is SummaryResults.Loading
-                        if (summaryResult is SummaryResults.Success) {
-                            recipeSummary = summaryResult.summary
-                        } else if (summaryResult is SummaryResults.Error) {
-                            showRefreshSnackBar(binding.root, requireContext()) {
-                                TODO("handle click listener")
+                        when (summaryResult) {
+                            is SummaryResults.Success -> {
+                                summaryProgressBar.isVisible = false
+                                recipeSummary = summaryResult.summary
+                            }
+                            is SummaryResults.Error -> {
+                                showRefreshSnackBar(binding.root, requireContext()) {
+                                    TODO("handle click listener")
+                                }
+                                summaryProgressBar.isVisible = false
+                            }
+                            is SummaryResults.Loading -> {
+                                summaryProgressBar.isVisible = true
                             }
                         }
+
                     }
         }
     }
