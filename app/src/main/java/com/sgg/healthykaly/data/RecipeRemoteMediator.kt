@@ -38,7 +38,6 @@ class RecipeRemoteMediator(private val queries: Map<String, Int>,
                     if (remotePage.nextPage == null) {
                         return MediatorResult.Success(endOfPaginationReached = true)
                     }
-
                     remotePage.nextPage
                 }
             }

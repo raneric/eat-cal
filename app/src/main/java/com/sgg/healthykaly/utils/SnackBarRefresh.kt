@@ -10,9 +10,9 @@ fun showRefreshSnackBar(view: View,
                         action: () -> Unit) {
     Snackbar.make(view,
                   context.getString(R.string.error_loading_data),
-                  Snackbar.LENGTH_LONG)
+                  Snackbar.LENGTH_INDEFINITE)
             .setAction(context.getString(R.string.txt_retry_button)) {
-                action
+                action()
             }
             .show()
 }

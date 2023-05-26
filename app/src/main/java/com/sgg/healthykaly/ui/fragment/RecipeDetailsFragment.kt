@@ -39,14 +39,18 @@ class RecipeDetailsFragment : Fragment() {
                               container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentRecipeDetailsFragmentBinding.inflate(inflater)
-        binding.bindView(args.id)
+        updateRecipeSummary()
+        binding.bindView()
         return binding.root
     }
 
-    private fun FragmentRecipeDetailsFragmentBinding.bindView(recipeId: Int) {
+    private fun FragmentRecipeDetailsFragmentBinding.bindView() {
         viewLifecycleOwner.lifecycleScope.launch {
-            recipe = viewModel.getRecipe(recipeId)
-            viewModel.getRecipeSummary(recipeId)
+            viewModel.selectedRecipeId?.let {
+                recipe = viewModel.getRecipe(it)
+            }
+
+            viewModel.recipeSummary
                     .collect { summaryResult ->
                         when (summaryResult) {
                             is SummaryResults.Success -> {
@@ -55,7 +59,9 @@ class RecipeDetailsFragment : Fragment() {
                             }
                             is SummaryResults.Error -> {
                                 showRefreshSnackBar(binding.root, requireContext()) {
-                                    TODO("handle click listener")
+                                    viewLifecycleOwner.lifecycleScope.launch {
+                                        viewModel.refreshSummary()
+                                    }
                                 }
                                 summaryProgressBar.isVisible = false
                             }
@@ -65,6 +71,13 @@ class RecipeDetailsFragment : Fragment() {
                         }
 
                     }
+        }
+    }
+
+    private fun updateRecipeSummary() {
+        viewModel.selectedRecipeId = args.id
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.refreshSummary()
         }
     }
 }

@@ -45,7 +45,6 @@ class RecipeRepository @Inject constructor(
 
     suspend fun getRecipeSummary(recipeId: Int): Flow<SummaryResults> {
         return flow {
-            emit(SummaryResults.Loading())
             try {
                 val result = recipeService.findRecipeSummary(recipeId)
                 emit(SummaryResults.Success(result))
